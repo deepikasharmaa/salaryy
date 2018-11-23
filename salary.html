@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Salary Calculater</title>
+
+    <style type="text/css">
+     body{
+        background-image: url('bg1.png');
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+        height: 100vh;
+      }
+      .panel{
+        margin-top: 50px;
+      }
+      .table{
+        display: none;
+        width: 100%;
+
+      }
+      .tbl_active{
+        display: inline-table;
+        width: 100%;
+        margin:0px auto!important;
+      }
+      .panel-heading{
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .tbl_hdng{
+        background-color: #0f5f63;
+        color: #fff;
+        padding: 5px 0px;
+      }
+      #show{
+        color: #10b710;
+      }
+      #leaves{
+        color: #ec0e0e;
+      }
+      #pds{
+        color: #28a6bb;
+      }
+      #salary{
+        color: #e87916;
+      }
+    </style>
+
+</head>
+    <body>
+    
+      <div class="container">
+        
+            
+
+              <div class="col-sm-6 col-sm-offset-3">
+                <div class="panel panel-primary form-horizontal">
+                  <div class="panel-heading text-center">Salary System</div>
+                  <div class="panel-body"> 
+<div class="row">
+                    <div class="col-sm-6">
+                    <div class="form-group">
+                      <label class="col-sm-12">Total Salary</label>
+                      <div class="col-sm-12">
+                        <input type="password" name="" class="form-control" id= "t_salary" >
+                      </div>
+                    </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                    <div class="form-group">
+                      <label class="col-sm-12">Total Days</label>
+                      <div class="col-sm-12">
+                        <input type="number" class="form-control" id= "t_days">
+                      </div>
+                    </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                    <div class="form-group">
+                      <label class="col-sm-12">Total leaves</label>
+                      <div class="col-sm-12">
+                        <input type="number"  class="form-control" id= "t_leaves">
+                      </div>
+                    </div>
+                    </div>
+
+                </div>
+
+                 <div class="row">
+
+                     <div class="col-sm-12">
+
+                          <table class="table table-striped">
+                            <thead><tr class="text-center tbl_hdng"><td colspan="2"><h4>Salary Structure </h4></td></tr></thead>
+                            <tbody>
+                             <tr>
+                              <td>Total Salary</td>
+                              <td class="text-right"><strong id="salary"></strong> </td>
+                            </tr>
+
+                            <tr>
+                              <td>Per Day Salary</td>
+                              <td class="text-right"><strong id="pds"></strong></td>
+                            </tr>
+
+                             <tr>
+                              <td>Total Leaves</td>
+                              <td class="text-right"><strong id="leaves"></strong></td>
+                            </tr>
+                            
+                            
+                            <tr>
+                              <td>Gross Salary</td>
+                              <td class="text-right"><strong id="show"></strong></td>
+                            </tr>
+                            </tbody>
+                          </table>
+                     </div>
+                  </div>
+                  </div>
+
+                  <div class="panel-footer">
+                    <div class="row">
+                      <div class="form-group">
+                      <div class="col-sm-12 text-center">
+                        <button class="btn btn-sm btn-primary">calculate</button>
+                        <a href="" class="btn btn-danger">Clear</a>
+                      </div>
+                      </div>
+                    </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+          </div>
+
+
+    </body>
+
+
+
+
+
+<script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+   $('button').click(function(){
+
+      var ts = parseInt($('#t_salary').val()); 
+
+      var td = parseInt($('#t_days').val());
+
+      var tl = parseInt($('#t_leaves').val());
+
+      var one_d = ts / td;
+
+      var twd = td - tl;
+
+      var tgross = one_d * twd;
+
+      var paidsalary = tgross - 208 ;
+
+      $('#salary').text(ts)
+      $('#leaves').text(tl);
+      $('#show').text(paidsalary);
+      $('#pds').text(one_d);
+   })
+
+
+    $('button').click(function(){
+      $(".table").addClass("tbl_active");
+});
+});
+
+</script>
+
+
+  </html>
+
